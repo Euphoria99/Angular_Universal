@@ -34,13 +34,13 @@ export function app(): express.Express {
   //   res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   // });
   
-  // Server-side rendering for the home route
-  server.get('', (req, res) => {
+  //  prerendering for the /works route.Add * ('/works/*') to match any path segment afterwards
+  server.get('/works', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
-  // Server-side rendering for the /about route.Add * ('/about/*') to match any path segment afterwards
-  server.get('/about', (req, res) => {
+    //  prerendering for the /contacts route.Add * ('/contacts/*') to match any path segment afterwards
+  server.get('/contacts', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 

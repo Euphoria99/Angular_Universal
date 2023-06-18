@@ -10,7 +10,8 @@
     "dev:ssr": "ng run angular_universal:serve-ssr",
     "serve:ssr": "node dist/angular_universal/server/main.js",
     "build:ssr": "ng build && ng run angular_universal:server",
-    "prerender": "ng run angular_universal:prerender"
+    "prerender": "ng run angular_universal:prerender",
+    "serve:prerender": "node dist/angular_universal/server/main.js"
   },
   "private": true,
   "dependencies": {
