@@ -30,8 +30,23 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
-  server.get('*', (req, res) => {
+  // server.get('*', (req, res) => {
+  //   res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+  // });
+  
+  // Server-side rendering for the home route
+  server.get('', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+  });
+
+  // Server-side rendering for the /about route.Add * ('/about/*') to match any path segment afterwards
+  server.get('/about', (req, res) => {
+    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+  });
+
+  // Client-side rendering for all other routes
+  server.get('*', (req, res) => {
+    res.sendFile(join(distFolder, 'index.html'));
   });
 
   return server;
