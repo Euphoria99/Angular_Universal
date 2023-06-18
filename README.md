@@ -1,27 +1,79 @@
-# AngularUniversal
+# Angular Universal App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+This repository contains an Angular Universal application, which leverages server-side rendering (SSR) to provide better performance and search engine optimization (SEO) capabilities. With Angular Universal, your app can generate HTML on the server and send it to the client, resulting in faster initial page loads and improved user experience.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before running this Angular Universal app, ensure that you have the following software installed on your machine:
 
-## Code scaffolding
+- Node.js: [Download Node.js](https://nodejs.org/en)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular CLI: Install globally using npm install -g @angular/cli
+
+## Installation
+
+Follow these steps to set up and run the Angular Universal app:
+
+- Clone this repository to your local machine.
+
+- Navigate to the project's root directory.
+
+- Run npm install to install the project dependencies.
+
+## Development Server with SSR
+
+To run the development server with server-side rendering, use the following command:
+
+```
+npm run dev:ssr
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To build the Angular Universal app, execute the following command:
 
-## Running unit tests
+```
+npm run build:ssr
+```
+This command compiles the Angular app and generates the server-side rendering files in the `dist` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Production Server
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To start the production server with server-side rendering, use the following command:
 
-## Further help
+```
+npm run serve:ssr
+```
+This command launches a Node.js server that serves the pre-rendered Angular Universal app. The server will be accessible at `http://localhost:4000`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Prerendering
+
+You can also generate static HTML files for your app using prerendering. To do this, run the following command
+
+```
+npm run prerender
+```
+
+This command pre-renders the app and generates static HTML files for each route in the `dist/browser` directory.
+
+## Serve Prerendered App
+
+To serve the prerendered app locally, execute the following command:
+
+```
+npm run serve:prerender
+```
+
+This command starts a Node.js server that serves the prerendered Angular Universal app from the dist/browser directory. You can access the prerendered app in your browser at `http://localhost:4000`
+
+# Preview
+
+Here are some screenshots of the Angular Universal app in action:
+
+Client Side Rendering 
+![Homepage](./screenshots/csr.png)
+*Screenshot of page source of a Client Side Rendered app.*
+
+![Contact Page](./screenshots/ssr.png)
+*Screenshot of page source of a Server-Side Rendered app.*
