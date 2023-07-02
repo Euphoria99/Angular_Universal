@@ -30,19 +30,19 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
-  // server.get('*', (req, res) => {
-  //   res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
-  // });
+  server.get('*', (req, res) => {
+    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+  });
   
   //  prerendering for the /works route.Add * ('/works/*') to match any path segment afterwards
-  server.get('/works', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
-  });
+  // server.get('/works', (req, res) => {
+  //   res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+  // });
 
-    //  prerendering for the /contacts route.Add * ('/contacts/*') to match any path segment afterwards
-  server.get('/contacts', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
-  });
+  //   //  prerendering for the /contacts route.Add * ('/contacts/*') to match any path segment afterwards
+  // server.get('/contacts', (req, res) => {
+  //   res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+  // });
 
   // Client-side rendering for all other routes
   server.get('*', (req, res) => {
